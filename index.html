@@ -4,10 +4,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Abundata</title>
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
-  <h1>Le code d"Océane !</h1>
-  <script src="./script.js"></script>
+    <div class="intro">
+        <div class="logo"><img src="assets/images/Logo_full_codeBarre_Abundata_Transparent.png" alt="" srcset=""></div>
+    </div>
+    <div class="content">
+        <div class="text">Welcome to the scrollytelling journey!</div>
+        <nav class="navbar">
+            <div class="logo-centered">Your Logo</div>
+            <button class="info-button">Infos</button>
+        </nav>
+        <section class="articles">
+            <div class="card" data-theme="Abun'Clean">Abun'Clean</div>
+            <div class="card" data-theme="Abun'Home">Abun'Home</div>
+            <div class="card" data-theme="Abun'Scroll">Abun'Scroll</div>
+            <div class="card" data-theme="Abun'Waste">Abun'Waste</div>
+        </section>
+        <section class="article-content hidden">
+            <div class="horizontal-scroll">
+                <div class="horizontal-card">Content 1</div>
+                <div class="horizontal-card">Content 2</div>
+                <div class="horizontal-card">Content 3</div>
+                <div class="horizontal-card">Content 4</div>
+            </div>
+        </section>
+    </div>
+
+<script src="script.js"></script>
 </body>
 </html>
