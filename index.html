@@ -7,32 +7,40 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://use.typekit.net/lxj6xsp.css">
 </head>
 <body>
-    <div class="intro">
-        <div class="logo"><img src="assets/images/Logo_full_codeBarre_Abundata_Transparent.png" alt="" srcset=""></div>
-    </div>
+    <div id="intro-video-container">
+        <video id="intro-video" autoplay muted>
+          <source src="assets/videos/Intro ABUNDATA.mp4" type="video/mp4">
+          Votre navigateur ne supporte pas la lecture vidéo.
+        </video>
+      </div>
+
+      <nav class="navbar">
+        <div class="navbar-container">
+          <img src="assets/images/Logo_full_codeBarre_Abundata_Transparent.png" alt="Logo" class="logo">
+        </div>
+      </nav>
+
     <div class="content">
-        <div class="text">Welcome to the scrollytelling journey!</div>
-        <nav class="navbar">
-            <div class="logo-centered">Your Logo</div>
-            <button class="info-button">Infos</button>
-        </nav>
+        <div class="card" data-theme="Intro"> Les 30 glorieuses, ou l’histoire de la surconsommation</div>
+<div class="text-introcards">
+        Pourquoi surconsomme t’on aujourd’hui ? <br>
+Choisis la thématique qui te plait</div>
+
         <section class="articles">
-            <div class="card" data-theme="Abun'Clean">Abun'Clean</div>
-            <div class="card" data-theme="Abun'Home">Abun'Home</div>
-            <div class="card" data-theme="Abun'Scroll">Abun'Scroll</div>
-            <div class="card" data-theme="Abun'Waste">Abun'Waste</div>
+            <div class="card" data-theme="Abun'Clean">Abun'Clean <a href="abunClean.html"></a></div>
+            <div class="card" data-theme="Abun'Home">Abun'Home <a href="abunHome.html"></a></div>
+            <div class="card" data-theme="Abun'Scroll">Abun'Scroll <a href="abunScroll.html"></a></div>
+            <div class="card" data-theme="Abun'Waste">Abun'Waste <a href="abunWaste.html"></a></div>
         </section>
-        <section class="article-content hidden">
-            <div class="horizontal-scroll">
-                <div class="horizontal-card">Content 1</div>
-                <div class="horizontal-card">Content 2</div>
-                <div class="horizontal-card">Content 3</div>
-                <div class="horizontal-card">Content 4</div>
-            </div>
-        </section>
+    
     </div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
 <script src="script.js"></script>
 </body>

@@ -4,109 +4,92 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     overflow-x: hidden;
+    background-color: #FFFEF6;
 }
 
-.intro {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #FFFDEF;
-    color: white;
+#intro-video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
-.logo {
-    font-size: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    opacity: 0;
-    transform: translateY(50px);
+#intro-video {
+  width: 100%;
+  height: auto;
 }
 
-.content {
-    padding: 20px;
+#main-content {
+  display: block;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar {
-    position: fixed;
+    position: fixed; /* Fixe la navbar en haut de la page */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 60px;
-    background: #FFFDEF;
+    width: 100%; /* Prend toute la largeur */
+    height: 60px; /* Hauteur fixe de la navbar */
+    background:transparent; /* Couleur de fond */
     display: flex;
-    justify-content: center;
+    align-items: center; /* Centre verticalement les éléments */
+    justify-content: center; /* Centre horizontalement le contenu */
+    padding: 0 20px; /* Ajoute un espace interne si nécessaire */
+    z-index: 999; /* S'assure que la navbar est devant les autres éléments */
+}
+  
+/* Conteneur du logo */
+.navbar-container {
+    display: flex;
     align-items: center;
-    padding: 0 20px;
-    opacity: 0;
-    display: none;
-    transition: opacity 0.3s ease, display 0.3s ease;
 }
 
-.navbar .logo-centered {
-    font-size: 1.2rem;
-    font-weight: bold;
-    transition: transform 0.3s ease;
+/* Logo */
+.logo {
+    height: 40px; /* Taille du logo */
+    width: auto; /* Maintient les proportions */
+    margin: 0; /* Supprime tout espacement extérieur */
 }
 
-/* Si vous avez des éléments de chaque côté */
-.navbar .nav-left, 
-.navbar .nav-right {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.navbar .nav-left {
-    left: 20px;
-}
-
-.navbar .nav-right {
-    right: 20px;
-}
-
-.navbar .info-button {
-    background: #1D1D1D;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    padding: 8px 16px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.3s ease;
-}
-
-.navbar .info-button:hover {
-    background: #952429;
-}
-
-.text {
+.content .text-introcards {
+    font-family: "futura-pt", sans-serif;
+    font-weight: 700;
+    font-style: normal;
     display: flex;
     justify-content: center;
-    padding-top: 3%;
-    padding-bottom: 5%;
+    text-align: center;
+    padding-top: 4%;
+    padding-bottom: 7%;
     font-style: black;
     font-size: 2rem;
 }
+
+/*Cartes de thématique*/
+
 .articles {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     gap: 20px;
-    padding: 40px 0;
+    padding: 5px 1em 0 2em;
 }
 
+/* Style commun à toutes les cartes */
 .card {
-    background: #f4f4f4;
-    width: 270px;
+    width: 250px;
     height: 400px;
+    background: #f4f4f4;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 2%;
-    margin-right: 2%;
+    margin: 10px auto;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     font-size: 1.2rem;
@@ -115,9 +98,41 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Carte Intro */
+.card[data-theme="Intro"] {
+width: 1000px;
+height: 400px;
+margin-top: 10%;
+margin-bottom: 10%;
+
+}
+
+/* Carte Abun'Clean */
+.card[data-theme="Abun'Clean"] {
+
+    
+}
+
+/* Carte Abun'Home */
+.card[data-theme="Abun'Home"] {
+   
+    
+}
+
+/* Carte Abun'Scroll */
+.card[data-theme="Abun'Scroll"] {
+   
+    
+}
+
+/* Carte Abun'Waste */
+.card[data-theme="Abun'Waste"] {
+   
+
+/* Effet au survol pour toutes les cartes */
 .card:hover {
     transform: scale(1.1);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .article-content {
@@ -133,8 +148,6 @@ body {
 
 .horizontal-card {
     flex: 0 0 auto;
-    width: 300px;
-    height: 200px;
     background: #e0e0e0;
     border-radius: 10px;
     display: flex;

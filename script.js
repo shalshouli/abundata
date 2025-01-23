@@ -1,24 +1,5 @@
 gsap.registerPlugin(ScrollTrigger);
 
-// Logo animation intro
-gsap.to(".logo", {
-    opacity: 1,
-    duration: 2,
-    y: 0,
-    scale: 1,
-    ease: "power4.out",
-    onComplete: () => {
-        gsap.to(".logo", {
-            scale: 0.2,
-            y: -50,
-            duration: 1,
-            ease: "power2.out",
-            onComplete: () => {
-                gsap.to(".navbar.logo-centered", { opacity: 1, display: "flex", ease: "power2.out" });
-            }
-        });
-    }
-});
 
 // Article cards hover effect
 document.querySelectorAll(".card").forEach(card => {
@@ -32,3 +13,17 @@ document.querySelectorAll(".card").forEach(card => {
         gsap.to(".articles", { display: "none", duration: 0.5, ease: "power2.inOut" });
     });
 });
+
+// Introduction vidéo
+document.addEventListener("DOMContentLoaded", function () {
+    const video = document.getElementById("intro-video");
+    const introContainer = document.getElementById("intro-video-container");
+    const mainContent = document.getElementById("main-content");
+  
+    // Événement lorsque la vidéo se termine
+    video.addEventListener("ended", () => {
+      introContainer.style.display = "none"; // Cache la vidéo d'intro
+      mainContent.style.display = "block";  // Affiche le contenu principal
+      document.body.style.overflow = "auto"; // Réactive le scrolling
+    });
+  });
