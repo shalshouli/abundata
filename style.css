@@ -1,162 +1,213 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root {
+    /* Couleurs*/
+    --fond: #FFFEF6; 
+    --banniere: #EBDEBE;
+    --ecritureBanniere: #716040;
+    --ecriture: #716040;
+    --lien: #f9f4ef;
+    --titre: #301803;
+    --fondN: #543a20;
+    --ecritureN: #f1f1f1;
+    --textfooter: #969595;
+   
+    /* Typographies*/
+
+ /* Variables de typographie pour Futura PT */
+    --font-family-futura-pt: 'Futura PT', sans-serif;
+  
+    /* Titres principaux */
+    --font-size-h1: 48px;
+    --font-weight-h1: 700; /* Bold */
+    --line-height-h1: 1.2;
+  
+    /* Titres secondaires */
+    --font-size-h2: 36px;
+    --font-weight-h2: 600; /* Semi-Bold */
+    --line-height-h2: 1.3;
+  
+    /* Corps du texte */
+    --font-size-body: 16px;
+    --font-weight-body: 400; /* Regular */
+    --line-height-body: 1.5;
+  }
 
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
-    background-color: #FFFEF6;
+  margin: 0;
+  font-family: 'futura-pt', sans-serif; /* Police mise à jour */
+  background-color: var(--fond)
+  overflow-x: hidden;
 }
 
 #intro-video-container {
-  position: fixed;
+  position: relative;
+  height: 100vh; /* Prend toute la hauteur de l'écran */
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Assure que c'est au-dessus du contenu */
+}
+
+#intro-video {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
+  object-fit: cover;
+  z-index: 1;
 }
 
-#intro-video {
-  width: 100%;
-  height: auto;
+.scroll-indicator {
+  font-family: var(--font-weight-body);
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-body);
+  text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  animation: bounce 1s infinite;
+  cursor: pointer;
 }
 
-#main-content {
-  display: block;
-  margin: 0;
-  padding: 0;
+@keyframes bounce {
+  0%, 100% {
+    transform: translate(-50%, 0);
+  }
+  50% {
+    transform: translate(-50%, 10px);
+  }
 }
 
 .navbar {
-    position: fixed; /* Fixe la navbar en haut de la page */
-    top: 0;
-    left: 0;
-    width: 100%; /* Prend toute la largeur */
-    height: 60px; /* Hauteur fixe de la navbar */
-    background:transparent; /* Couleur de fond */
-    display: flex;
-    align-items: center; /* Centre verticalement les éléments */
-    justify-content: center; /* Centre horizontalement le contenu */
-    padding: 0 20px; /* Ajoute un espace interne si nécessaire */
-    z-index: 999; /* S'assure que la navbar est devant les autres éléments */
-}
-  
-/* Conteneur du logo */
-.navbar-container {
-    display: flex;
-    align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
 }
 
-/* Logo */
 .logo {
-    height: 40px; /* Taille du logo */
-    width: auto; /* Maintient les proportions */
-    margin: 0; /* Supprime tout espacement extérieur */
+  height: 40px;
+  width: auto;
 }
 
-.content .text-introcards {
-    font-family: "futura-pt", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    display: flex;
-    justify-content: center;
+.content {
+  position: relative;
+  padding-top: 60px; /* Ajoute un espace pour la navbar */
+}
+
+
+/* Carte Intro */
+.card[data-theme="Intro"] {
+    width: 1000px;
+    height: 400px;
+    margin: 10% auto; /* Centre horizontalement et ajoute un espace vertical */
+    display: flex; /* Pour centrer le contenu si nécessaire */
+    justify-content: center; /* Centre le texte horizontalement */
+    align-items: center; /* Centre le texte verticalement */
+  }
+  .text-introcards {
     text-align: center;
-    padding-top: 4%;
-    padding-bottom: 7%;
-    font-style: black;
-    font-size: 2rem;
-}
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 20px;
+    color: #333;
+  }
 
-/*Cartes de thématique*/
-
+ /* Cartes de thématiques (section articles) */
 .articles {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 5px 1em 0 2em;
-}
-
-/* Style commun à toutes les cartes */
-.card {
+    justify-content: space-around; /* Espace égal entre chaque carte */
+    flex-wrap: wrap; /* Permet le retour à la ligne si l'espace est insuffisant */
+    gap: 20px; /* Espacement entre les cartes */
+    padding: 40px 2em; /* Ajoute de l'espace autour des cartes */
+  }
+  
+  /* Style commun à toutes les cartes */
+  .card {
     width: 250px;
     height: 400px;
     background: #f4f4f4;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 10px auto;
+    margin: 0; /* Réinitialise les marges pour éviter les décalages */
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     font-size: 1.2rem;
     font-weight: bold;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Effet au survol pour toutes les cartes */
+
+  .card[data-theme="Intro"]:hover {
+    transform: none; /* Aucune transformation au survol */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre par défaut */
 }
-
-/* Carte Intro */
-.card[data-theme="Intro"] {
-width: 1000px;
-height: 400px;
-margin-top: 10%;
-margin-bottom: 10%;
-
-}
-
-/* Carte Abun'Clean */
-.card[data-theme="Abun'Clean"] {
-
-    
-}
-
-/* Carte Abun'Home */
-.card[data-theme="Abun'Home"] {
-   
-    
-}
-
-/* Carte Abun'Scroll */
-.card[data-theme="Abun'Scroll"] {
-   
-    
-}
-
-/* Carte Abun'Waste */
-.card[data-theme="Abun'Waste"] {
-   
-
-/* Effet au survol pour toutes les cartes */
-.card:hover {
+  .card:hover {
     transform: scale(1.1);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-}
+  }
 
-.article-content {
-    display: none;
-}
-
-.horizontal-scroll {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    padding: 40px 0;
-}
-
-.horizontal-card {
-    flex: 0 0 auto;
-    background: #e0e0e0;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.hidden {
-    display: none !important;
-}
+  .footer {
+    background-color: var(--fondN);
+    color: var(--ecritureN);
+    padding: 50px 15px;
+  }
+  .footer_container {
+    display: grid;
+    grid-template-columns: repeat(12, 2fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+  }
+  
+  .footer1 { grid-area: 1 / 3 / 2 / 5; }
+  .footer2 { grid-area: 1 / 5 / 2 / 7; }
+  .footer3 { grid-area: 1 / 7 / 2 / 9; }
+  .footer4 { grid-area: 1 / 9 / 2 / 11; }
+  
+  ul {
+    list-style: none;
+    padding-inline-start: 0px;
+  }
+  
+  .h3-footer h3{
+    font-size: 18px;
+    color: var(--ecritureN);
+    text-transform: capitalize;
+    margin-bottom: 30px;
+    font-weight: 500;
+    position: relative;
+  }
+  
+  .footer_container ul li:not(:last-child){
+    margin-bottom: 10px;
+  }
+  
+  .footer_container ul li a{
+    font-size: 16px;
+    text-transform: capitalize;
+    color: var(--textfooter);
+    text-decoration: none;
+    font-weight: 300;
+    display: block;
+    transition: all 0.3s ease;
+  }
+  
+  .footer_container ul li a:hover{
+    color: var(--ecritureN);
+    padding-left: 10px;
+  }

@@ -26,4 +26,17 @@ document.addEventListener("DOMContentLoaded", function () {
       mainContent.style.display = "block";  // Affiche le contenu principal
       document.body.style.overflow = "auto"; // Réactive le scrolling
     });
+});
+
+  document.addEventListener('scroll', function() {
+    const introVideoSection = document.getElementById('intro-video-section');
+    if (window.scrollY > introVideoSection.offsetHeight) {
+      introVideoSection.style.opacity = 0;
+      introVideoSection.style.pointerEvents = 'none'; // Désactive la vidéo pour éviter qu'elle bloque le contenu
+    }
+  });
+
+  document.querySelector('.scroll-indicator').addEventListener('click', () => {
+    const mainContent = document.getElementById('main-content');
+    mainContent.scrollIntoView({ behavior: 'smooth' });
   });
