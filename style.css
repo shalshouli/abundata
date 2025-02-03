@@ -88,6 +88,21 @@ border-radius: 70%;
 cursor: pointer;
 transition: all 0.3s ease;
 z-index: 9999;
+padding: 10px 10px;
+}
+
+btn {
+  background-color: #F5F5DC;
+  color: #4A4A4A;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 100px;
 }
 
 .mode-btn:hover {
@@ -187,7 +202,7 @@ body.dark-mode .card-intro {
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px;
+  height: 80px;
   background: var(--fondN);
   display: flex;
   justify-content: left;
