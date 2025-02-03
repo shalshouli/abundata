@@ -4,126 +4,204 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Abundata</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <link rel="stylesheet" href="https://use.typekit.net/lxj6xsp.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="https://use.typekit.net/lxj6xsp.css">
 </head>
 <body>
-    <div id="intro-video-container">
-        <video id="intro-video" autoplay muted>
-          <source src="assets/videos/Intro ABUNDATA.mp4" type="video/mp4">
-          Votre navigateur ne supporte pas la lecture vidéo.
-        </video>
-        <div class="scroll-indicator">Scroll pour continuer</div>
+  <div class="background-image"></div>
+  <div id="intro-video-container">
+    <video id="intro-video" autoplay loop>
+      <source src="assets/videos/Intro-Abundata.mp4" type="video/mp4">
+      Votre navigateur ne supporte pas la lecture vidéo.
+    </video>
+    <div class="scroll-indicator">Scroll pour continuer</div>
+  </div>
+  
+<!-- Conteneur pour les boutons (mode sombre et son) -->
+<div id="controls-container">
+  <!-- Bouton Mode sombre -->
+  <button id="toggle-mode" class="mode-btn">
+    <span class="icon sun">🌙</span>
+  </button>
+
+  <!-- Bouton Son -->
+  <button id="toggle-sound" class="mode-btn">
+    <span class="toggle-sound">🔊</span> <!-- Icône pour le son activé -->
+  </button>
 </div>
+
+  <nav class="navbar">
+    <div class="navbar-container">
+      <img src="assets/images/Logo_full_codeBarre_Abundata_Transparent.png" alt="Logo" class="logo">
+    </div>
+  </nav>
+
+  <div class="content">
+    <div class="card-intro">
+      <div class="card-intro-left">
+        <img src="assets/images/Surconsommation _Carte-d'intro.jpg" alt="Image représentant la surconsommation">
       </div>
-
-      <nav class="navbar">
-        <div class="navbar-container">
-          <img src="assets/images/Logo_full_codeBarre_Abundata_Transparent.png" alt="Logo" class="logo">
+      <div class="card-intro-right">
+        <h2>Les 30 Glorieuses, ou l’histoire de la surconsommation</h2>
+        <p>Toujours besoin de plus ? FOMO (fear of missing out) ? Comment en sommes-nous arrivés à ce rythme effréné où les objets naissent, vivent et disparaissent presque aussi vite qu’ils sont produits ?</p>
+        <p>Avec Abundata, plongez dans les archives de l’INA, explorez des contenus exclusifs en collaboration avec Brut. Découvrez comment les choix d’hier influencent nos modes de vie d’aujourd’hui.</p>
+        
+        <!-- Logos placés sous le texte -->
+        <div class="logos-container">
+          <img src="assets/images/Logo_INA.png" alt="Logo INA" class="logo-intro INA">
+          <span class="logo-separator">×</span>
+          <img src="assets/images/Logo_BRUT.svg" alt="Logo BRUT" class="logo-intro BRUT">
         </div>
-      </nav>
-
-    <div class="content">
-        <div class="card" data-theme="Intro"> Les 30 glorieuses, ou l’histoire de la surconsommation</div>
-<div class="text-introcards">
-        Pourquoi surconsomme t’on aujourd’hui ? <br>
-Choisis la thématique qui te plait</div>
-
-        <section class="articles">
-            <div class="card" data-theme="Abun'Clean">Abun'Clean <a href="abunClean.html"></a></div>
-            <div class="card" data-theme="Abun'Home">Abun'Home <a href="abunHome.html"></a></div>
-            <div class="card" data-theme="Abun'Scroll">Abun'Scroll <a href="abunScroll.html"></a></div>
-            <div class="card" data-theme="Abun'Waste">Abun'Waste <a href="abunWaste.html"></a></div>
-        </section>
-    
+      </div>
     </div>
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<!-- Cartes thématiques -->
 
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <!-- Carrousel -->
+    <div class="carousel">
+      <!-- list item -->
+      <div class="list">
+          <div class="item">
+              <img src="assets/images/img1.jpg">
+              <div class="content">
 
-<script src="script.js"></script>
+                  <div class="title">Machine & liberté</div>
+                  <div class="des">
+                      <!-- texte -->
+                      Imagine un monde sans machine à laver, sans frigo, sans aspirateur. <Br>Avant le XXᵒ siècle, c'était la réalité pour la majorité des foyers. Puis, tout a changé.</Br> <br>L'avènement de l'industrialisation a transformé notre rapport au temps, au travail, et même à la liberté. Mais cette "liberté" offerte par les machines est-elle vraiment ce qu'elle semble ?<br>
+                      <a href="machine&liberte.html" class="btn">Voir plus</a> <!-- Lien vers la page dédiée -->
+                    </div>
+                  
+              </div>
+          </div>
+          <div class="item">
+              <img src="assets/images/img2.jpeg">
+              <div class="content">
+                  <div class="title">Consommation & l'information</div>
+                  <div class="des">
+                    Imaginez un monde sans internet, sans smartphones, sans réseaux sociaux. <br>📵 Avant les années 1990, c'était la norme. La presse papier régnait en maître, et les journaux télévisés structuraient nos soirées. <br>Puis, tout à basculé. Dans l'espace de trente ans, la révolution numérique a bouleversé nos habitudes d'information et de consommation de contenu. Mais à quel prix ?<br>
+                  </div>
+                  
+              </div>
+          </div>
+          <div class="item">
+              <img src="assets/images/img3.png">
+              <div class="content">
+                  <div class="title">Le gaspillage alimentaire</div>
+                  <div class="des">
+                    Imagine un monde sans supermarchés, sans plastique, sans emballages à tout-va. <br>Avant les années 1950, cette réalité semblait presque normale pour une grande partie de la population. Puis, tout a basculé. <br>L'explosion de la production alimentaire de masse a métamorphosé notre façon de consommer, d'acheter, et même de jeter. <br>Mais ce confort apparent, cette abondance qui semble nous simplifier la vie, est-elle vraiment aussi bénéfique qu'on voudrait nous le faire croire ? Le gaspillage alimentaire, symptôme d’une surconsommation excessive, nous montre une autre facette de ce progrès : celui qui nous fait perdre le sens de la valeur de ce que nous avons.<br>
+                  </div>
+                  
+              </div>
+          </div>
+          <div class="item">
+              <img src="assets/images/img4.jpg">
+              <div class="content">
+                  <div class="title">Le rasoir</div>
+                  <div class="des">
+                    Imagine un monde sans rasoirs jetables, sans lames interchangeables, sans le confort des produits modernes. <br>Avant le XXᵒ siècle, les hommes se rasaient avec des couteaux ou des rasoirs droit, nécessitant une dextérité et un entretien constants. Puis, tout a changé. L'industrialisation des produits de soin a apporté des solutions pratiques, rapides et accessibles à tous. <br>Mais cette facilité, ce luxe d’un rasage parfait à chaque instant, n’a-t-elle pas un prix ? Un prix caché dans l'usage excessif, la pollution des déchets plastiques et l'illusion de la perfection constante.<br>
+                  </div>
+                  
+              </div>
+          </div>
+      </div>
+      <!-- list thumnail -->
+      <div class="thumbnail">
+          <div class="item">
+              <img src="assets/images/img1.jpg">
+              <div class="content">
+                  <div class="title">
+                      Name Slider
+                  </div>
+                  <div class="description">
+                      Description
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="assets/images/img2.jpeg">
+              <div class="content">
+                  <div class="title">
+                      Name Slider
+                  </div>
+                  <div class="description">
+                      Description
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="assets/images/img3.png">
+              <div class="content">
+                  <div class="title">
+                      Name Slider
+                  </div>
+                  <div class="description">
+                      Description
+                  </div>
+              </div>
+          </div>
+          <div class="item">
+              <img src="assets/images/img4.jpg">
+              <div class="content">
+                  <div class="title">
+                      Name Slider
+                  </div>
+                  <div class="description">
+                      Description
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- next prev -->
+
+      <div class="arrows">
+          <button id="prev"><</button>
+          <button id="next">></button>
+      </div>
+      <!-- time running -->
+      <div class="time"></div>
+  </div>
+
+  <script src="script.js" defer></script>
 </body>
 
+
+<!-- Footer -->
 <footer class="footer">
-    <div class="footer_container">
-      <div class="footer1">
-        <h3>Références Site</h3>
-        <ul>
-          <li>
-            <a href="" target="">GT Maru</a>
-          </li>
-          <li>
-            <a href="" target=""
-              >Motion Motion</a
-            >
-          </li>
-          <li>
-            <a
-              href=""
-              target=""
-              >OpenLux</a
-            >
-          </li>
-        </ul>
-      </div>
-      <div class="">
-        <h3 class="h3-footer">Références Typo</h3>
-        <ul>
-          <li>
-            <a
-              href=""
-              target=""
-              >Inflated text effect for beginners</a
-            >
-          </li>
-          <li>
-            <a
-              href=""
-              target=""
-              >Ballon en Plastique</a
-            >
-          </li>
-          <li>
-            <a
-              href=""
-              target=""
-              >Mochi Pop One</a
-            >
-          </li>
-          <li>
-            <a
-              href=""
-              target=""
-              >Tilt Neon</a
-            >
-          </li>
-        </ul>
-      </div>
-      <div class="footer3">
-        <h3>Références Animation</h3>
-        <ul>
-          <li><a href="" target="">Rosé</a></li>
-          <li>
-            <a href="" target=""
-              >Flash Animation Online Course</a
-            >
-          </li>
-        </ul>
-      </div>
-      <div class="footer4">
-        <h3>Nos contacts</h3>
-        <ul>
-          <li>
-            <a href="" target="_blank"
-              >Julie Lubet</a
-            >
-          </li>
-        </ul>
-      </div>
+  <div class="footer_container">
+    <div class="footer1">
+      <h3>Références Site</h3>
+      <ul>
+        <li><a href="">GT Maru</a></li>
+        <li><a href="">Motion Motion</a></li>
+        <li><a href="">OpenLux</a></li>
+      </ul>
     </div>
-  </footer>
+    <div class="footer2">
+      <h3>Références Typo</h3>
+      <ul>
+        <li><a href="">Inflated text effect for beginners</a></li>
+        <li><a href="">Ballon en Plastique</a></li>
+        <li><a href="">Mochi Pop One</a></li>
+        <li><a href="">Tilt Neon</a></li>
+      </ul>
+    </div>
+    <div class="footer3">
+      <h3>Références Animation</h3>
+      <ul>
+        <li><a href="">Rosé</a></li>
+        <li><a href="">Flash Animation Online Course</a></li>
+      </ul>
+    </div>
+    <div class="footer4">
+      <h3>Nos contacts</h3>
+      <ul>
+        <li><a href="">Julie Lubet</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
 
 </html>

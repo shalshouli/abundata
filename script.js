@@ -1,42 +1,68 @@
-gsap.registerPlugin(ScrollTrigger);
-
-
-// Article cards hover effect
-document.querySelectorAll(".card").forEach(card => {
-    card.addEventListener("mouseenter", () => {
-        gsap.to(card, { scale: 1.1, duration: 0.3, ease: "elastic.out(1, 0.3)" });
-    });
-    card.addEventListener("mouseleave", () => {
-        gsap.to(card, { scale: 1, duration: 0.3 });
-    });
-    card.addEventListener("click", () => {
-        gsap.to(".articles", { display: "none", duration: 0.5, ease: "power2.inOut" });
-    });
-});
-
-// Introduction vidéo
 document.addEventListener("DOMContentLoaded", function () {
-    const video = document.getElementById("intro-video");
-    const introContainer = document.getElementById("intro-video-container");
-    const mainContent = document.getElementById("main-content");
-  
-    // Événement lorsque la vidéo se termine
-    video.addEventListener("ended", () => {
-      introContainer.style.display = "none"; // Cache la vidéo d'intro
-      mainContent.style.display = "block";  // Affiche le contenu principal
-      document.body.style.overflow = "auto"; // Réactive le scrolling
-    });
-});
+  const toggleButton = document.getElementById("toggle-mode");
+  const body = document.body;
 
-  document.addEventListener('scroll', function() {
-    const introVideoSection = document.getElementById('intro-video-section');
-    if (window.scrollY > introVideoSection.offsetHeight) {
-      introVideoSection.style.opacity = 0;
-      introVideoSection.style.pointerEvents = 'none'; // Désactive la vidéo pour éviter qu'elle bloque le contenu
+  // Vérifie si l'utilisateur a déjà un mode préféré
+  if (localStorage.getItem("theme") === "dark") {
+    body.classList.add("dark-mode");
+    toggleButton.textContent = "☀️";
+  }
+
+  toggleButton.addEventListener("click", function () {
+    body.classList.toggle("dark-mode");
+
+    if (body.classList.contains("dark-mode")) {
+      toggleButton.textContent = "☀️";
+      localStorage.setItem("theme", "dark");
+    } else {
+      toggleButton.textContent = "🌙";
+      localStorage.setItem("theme", "light");
     }
   });
 
-  document.querySelector('.scroll-indicator').addEventListener('click', () => {
-    const mainContent = document.getElementById('main-content');
-    mainContent.scrollIntoView({ behavior: 'smooth' });
+  // Contrôle du son
+  const soundButton = document.getElementById("toggle-sound");
+  const video = document.getElementById("intro-video");
+
+  // Initialement, le son est activé
+  video.muted = false;
+  soundButton.textContent = "🔊"; // Le bouton affiche "🔊" pour un son activé
+
+  soundButton.addEventListener("click", function () {
+    if (video.muted) {
+      video.muted = false;  // Désactive le mute
+      soundButton.textContent = "🔊"; // Affiche l'icône pour son activé
+    } else {
+      video.muted = true;  // Active le mute
+      soundButton.textContent = "🔇"; // Affiche l'icône pour son coupé
+    }
   });
+
+  // --- Introduction vidéo ---
+  const introContainer = document.getElementById("intro-video-container");
+  const mainContent = document.getElementById("main-content");
+
+  video.addEventListener("ended", () => {
+    introContainer.style.display = "none";
+    mainContent.style.display = "block";
+    document.body.style.overflow = "auto";
+  });
+});
+
+// Ajout d'un événement click sur chaque miniature pour naviguer vers l'image correspondante
+document.querySelectorAll('.carousel .thumbnail .item').forEach((item) => {
+  item.addEventListener('click', function() {
+    // Récupère la liste actuelle des miniatures
+    let thumbnails = document.querySelectorAll('.carousel .thumbnail .item');
+    // Détermine l'index de la miniature cliquée
+    let clickedIndex = Array.from(thumbnails).indexOf(item);
+    
+    // Si la miniature cliquée est déjà la première (image affichée), on ne fait rien
+    if (clickedIndex === 0) return;
+    
+    // Appelle showSlider('next') autant de fois que nécessaire pour amener la miniature cliquée en première position
+    for(let i = 0; i < clickedIndex; i++){
+      showSlider('next');
+    }
+  });
+});
