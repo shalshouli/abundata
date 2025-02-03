@@ -88,6 +88,7 @@ border-radius: 70%;
 cursor: pointer;
 transition: all 0.3s ease;
 z-index: 9999;
+padding: 10px 10px;
 }
 
 .mode-btn:hover {
