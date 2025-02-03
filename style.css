@@ -1,71 +1,112 @@
 :root {
-    /* Couleurs*/
-    --fond: #FFFDEF; 
-    --carte: #FFFFFF;
-    --ecriture: #000000;
-    --lien: #f9f4ef;
-    --titre: #301803;
-    --fondN: #063246;
-    --ecritureN: #f1f1f1;
-    --textfooter: #969595;
-    --footer: #95252A;
-    /* Typographies*/
+  /* Couleurs*/
+  --fond: #FFFDEF; 
+  --carte: #FFFFFF;
+  --ecriture: #000000;
+  --lien: #f9f4ef;
+  --titre: #301803;
+  --fondN: #063246;
+  --ecritureN: #f1f1f1;
+  --textfooter: #969595;
+  --footer: #95252A;
+  /* Typographies*/
 
- /* Variables de typographie pour Futura PT */
-    --font-family-futura-pt: 'Futura PT', sans-serif;
-  
-    /* Titres principaux */
-    --font-size-h1: 48px;
-    --font-weight-h1: 700; /* Bold */
-    --line-height-h1: 1.2;
-  
-    /* Titres secondaires */
-    --font-size-h2: 36px;
-    --font-weight-h2: 600; /* Semi-Bold */
-    --line-height-h2: 1.3;
-  
-    /* Corps du texte */
-    --font-size-body: 16px;
-    --font-weight-body: 400; /* Regular */
-    --line-height-body: 1.5;
-  }
+  /* Variables de typographie pour Futura PT */
+  --font-family-futura-pt: 'Futura PT', sans-serif;
 
-  body {
-    margin: 0;
-    font-family: 'futura-pt', sans-serif;
-    background-color: var(--fond);
-    overflow-x: hidden;
-    transition: background-color 0.5s ease, color 0.5s ease;
-  }
-  /* Style du bouton */
-  .mode-btn {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    background: none;
-    border: 2px solid var(--ecriture);
-    color: var(--ecriture);
-    padding: 10px 0px; 
-    font-size: 18px;
-    border-radius: 70%;
-    cursor: pointer;
-    background-color: var(--fond);
-    transition: all 0.3s ease;
-    z-index: 9999;
-  }
+  /* Titres principaux */
+  --font-size-h1: 48px;
+  --font-weight-h1: 700; /* Bold */
+  --line-height-h1: 1.2;
 
-  #toggle-mode {
-    right: 20px; /* Position du bouton mode sombre */
-  }
-  
-  #toggle-sound {
-    right: 90px; /* Position du bouton son (espacé de 70px à droite du mode sombre) */
-  }
-  
+  /* Titres secondaires */
+  --font-size-h2: 36px;
+  --font-weight-h2: 600; /* Semi-Bold */
+  --line-height-h2: 1.3;
+
+  /* Corps du texte */
+  --font-size-body: 16px;
+  --font-weight-body: 400; /* Regular */
+  --line-height-body: 1.5;
+}
+
+body {
+  margin: 0;
+  font-family: 'futura-pt', sans-serif;
+  background-color: var(--fond);
+  overflow-x: hidden;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Filigrane */
+.background-image {
+position: fixed; /* L'image reste en place */
+width: 90%;
+height: 110vh; /* Prend toute la hauteur de l'écran */
+background-image: url("assets/images/FiligraneNoir.png");
+background-size: cover;
+background-position: center;
+z-index: -1; /* Derrière le contenu */
+}
+
+/* Mode sombre : Filigrane sombre */
+body.dark-mode .background-image {
+background-image: url("assets/images/FiligraneBlanc.png"); /* Change l'image du filigrane */
+
+}
+
+/* Mode sombre */
+body.dark-mode {
+  --fond: var(--fondN);
+  --ecriture: var(--ecritureN);
+  --carte: #092c3d;
+  --titre: #f1f1f1;
+  --textfooter: var(--ecriture);
+
+  background-color: var(--fond);
+  color: var(--ecriture);
+}
+
+body.dark-mode .card-intro {
+background-color: var(--carte);
+color: var(--ecriture);
+}
+
+body.dark-mode .card-intro {
+background-color: #FFFFFF !important; /* Garde le fond blanc en mode sombre */
+}
+
+/* Bouton mode sombre */
+.mode-btn {
+position: fixed;
+top: 15px;
+right: 15px;
+background: none;
+color: var(--ecriture);
+font-size: 18px;
+border-radius: 70%;
+cursor: pointer;
+transition: all 0.3s ease;
+z-index: 9999;
+}
+
 .mode-btn:hover {
-  background: var(--ecriture)!important;
+background: var(--ecriture)!important;
+color: var(--fond);
+}
+
+#toggle-mode {
+right: 20px;
+}
+
+#toggle-sound {
+right: 90px;
+}
+
+.mode-btn:hover {
   color: var(--fond);
 }
+
 /* Mode nuit */
 
 body.dark-mode {
@@ -147,15 +188,16 @@ body.dark-mode .card-intro {
   left: 0;
   width: 100%;
   height: 60px;
-  background: transparent;
+  background: var(--fondN);
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   z-index: 999;
 }
 
 .logo {
   height: 40px;
+  margin-left: 30px;
   width: auto;
 }
 
@@ -287,7 +329,7 @@ body.dark-mode .card-intro {
 }
 .carousel .list .item .content{
     position: absolute;
-    top: 20%;
+    top: 8%;
     width: 1140px;
     max-width: 80%;
     left: 50%;
@@ -305,6 +347,7 @@ body.dark-mode .card-intro {
 }
 
 /* thumbail */
+
 .thumbnail{
     position: absolute;
     bottom: 50px;
@@ -323,12 +366,13 @@ body.dark-mode .card-intro {
   align-items: center;
 }
 
-.thumbnail .item img{
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 20px;
+.thumbnail .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
 }
+
 .thumbnail .item .content{
     color: #fff;
     position: absolute;
@@ -441,7 +485,7 @@ body.dark-mode .card-intro {
     }
 }
 .carousel.next .thumbnail{
-    animation: effectNext .5s linear 1 forwards;
+    animation: effectNext .2s linear 1 forwards;
 }
 
 @keyframes effectNext{
@@ -508,7 +552,7 @@ body.dark-mode .card-intro {
 .carousel.prev .list .item:nth-child(2) .content .des,
 .carousel.prev .list .item:nth-child(2) .content .buttons
 {
-    animation: contentOut 1.5s linear 1 forwards!important;
+    animation: contentOut 1s linear 1 forwards!important;
 }
 
 @keyframes contentOut{

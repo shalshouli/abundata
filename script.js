@@ -39,7 +39,7 @@ gsap.to(".background-image", {
   }
 });
 
-//step 1: get DOM
+//Carrousel
 let nextDom = document.getElementById('next');
 let prevDom = document.getElementById('prev');
 
@@ -50,7 +50,7 @@ let thumbnailItemsDom = thumbnailBorderDom.querySelectorAll('.item');
 let timeDom = document.querySelector('.carousel .time');
 
 thumbnailBorderDom.appendChild(thumbnailItemsDom[0]);
-let timeRunning = 400;
+let timeRunning = 700;
 let timeAutoNext = 7000;
 
 nextDom.onclick = function(){
@@ -88,6 +88,25 @@ function showSlider(type){
         next.click();
     }, timeAutoNext)
 }
+
+// Contrôle du son
+const soundButton = document.getElementById("toggle-sound");
+const video = document.getElementById("intro-video");
+
+// Initialement, le son est activé
+video.muted = false;
+soundButton.textContent = "🔊"; // Le bouton affiche "🔊" pour un son activé
+
+soundButton.addEventListener("click", function () {
+  if (video.muted) {
+    video.muted = false;  // Désactive le mute
+    soundButton.textContent = "🔊"; // Affiche l'icône pour son activé
+  } else {
+    video.muted = true;  // Active le mute
+    soundButton.textContent = "🔇"; // Affiche l'icône pour son coupé
+  }
+});
+
 
 // Introduction vidéo
 
